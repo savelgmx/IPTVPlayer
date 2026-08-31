@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1 tvg-logo="https://placehold.co/300x300/1A1A2E/FFFFFF?text=Apple" group-title="Test Streams",Apple HLS Demo (Adaptive)
+https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8
+#EXTINF:-1 tvg-logo="https://placehold.co/300x300/E94560/FFFFFF?text=Mux" group-title="Test Streams",Mux HLS Demo
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+#EXTINF:-1 tvg-logo="https://placehold.co/300x300/0F3460/FFFFFF?text=Mux+2" group-title="Test Streams",Mux Timed Metadata Demo
+https://test-streams.mux.dev/pts_shift/master.m3u8

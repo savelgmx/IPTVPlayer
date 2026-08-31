@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.IPTVPlayer.Leanback" parent="Theme.Leanback">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <style name="Theme.IPTVPlayer.Playback" parent="Theme.Leanback">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>
