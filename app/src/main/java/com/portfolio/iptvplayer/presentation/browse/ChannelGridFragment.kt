@@ -37,14 +37,20 @@ class ChannelGridFragment : VerticalGridSupportFragment() {
         }
     )
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        title = "Channels"
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        
+        // move the gridPresenter and adapter initialization to onCreate
+        // to ensure they are available when the fragment inflates its layout.
         gridPresenter = VerticalGridPresenter().apply {
             numberOfColumns = NUM_COLUMNS
         }
         adapter = gridAdapter
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        title = "Channels"
 
         onItemViewClickedListener = OnItemViewClickedListener { _, item, _, _ ->
             when (item) {
