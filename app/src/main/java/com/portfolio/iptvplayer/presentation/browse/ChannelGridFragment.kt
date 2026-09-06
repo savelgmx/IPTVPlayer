@@ -39,9 +39,11 @@ class ChannelGridFragment : VerticalGridSupportFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
-        // move the gridPresenter and adapter initialization to onCreate
-        // to ensure they are available when the fragment inflates its layout.
+        // Leanback's VerticalGridSupportFragment calls its own onCreateView()
+        // — which needs gridPresenter/adapter already set — before this
+        // fragment's onViewCreated() ever runs. Setting them here in
+        // onCreate() (rather than onViewCreated, which is too late) is what
+        // avoids a NullPointerException on VerticalGridPresenter.onCreateViewHolder.
         gridPresenter = VerticalGridPresenter().apply {
             numberOfColumns = NUM_COLUMNS
         }

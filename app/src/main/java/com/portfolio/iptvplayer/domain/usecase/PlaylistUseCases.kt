@@ -33,3 +33,16 @@ class ClearCustomPlaylistUrlUseCase @Inject constructor(
 ) {
     operator fun invoke() = repository.clearCustomPlaylistUrl()
 }
+
+class ImportPlaylistFromLocalFileUseCase @Inject constructor(
+    private val repository: PlaylistRepository
+) {
+    suspend operator fun invoke(uriString: String): Result<List<Channel>> =
+        repository.importPlaylistFromLocalFile(uriString)
+}
+
+class ImportPlaylistFromAppFolderUseCase @Inject constructor(
+    private val repository: PlaylistRepository
+) {
+    suspend operator fun invoke(): Result<List<Channel>> = repository.importPlaylistFromAppFolder()
+}
