@@ -1,4 +1,4 @@
-package com.portfolio.iptvplayer.presentation.browse
+package com.portfolio.iptvplayer.presentation.channels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

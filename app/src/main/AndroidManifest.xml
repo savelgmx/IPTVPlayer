@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- Declares this as a TV app: shown in the Android TV launcher's
-         leanback row, and Google Play will only surface it to TV devices. -->
+         leanback row, and Google Play will only surface it to TV devices.
+         Unrelated to the androidx.leanback library — this is platform
+         manifest metadata, kept even though the UI is now pure Compose. -->
     <uses-feature android:name="android.software.leanback" android:required="true" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
@@ -16,14 +18,15 @@
         android:banner="@drawable/app_banner"
         android:icon="@drawable/app_banner"
         android:label="@string/app_name"
-        android:theme="@style/Theme.IPTVPlayer.Leanback"
+        android:theme="@style/Theme.IPTVPlayer"
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="n">
 
         <activity
-            android:name=".presentation.browse.BrowseActivity"
+            android:name=".MainActivity"
             android:exported="true"
+            android:theme="@style/Theme.IPTVPlayer.Playback"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,17 +34,6 @@
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".presentation.playback.PlaybackActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.IPTVPlayer.Playback" />
-
-        <activity
-            android:name=".presentation.settings.SettingsActivity"
-            android:exported="false"
-            android:screenOrientation="landscape" />
 
     </application>
 </manifest>
