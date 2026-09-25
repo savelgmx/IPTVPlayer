@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Tv
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
@@ -19,17 +21,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.tv.material3.Icon
 import androidx.tv.material3.ListItem
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
 import coil.compose.AsyncImage
 import com.portfolio.iptvplayer.domain.model.Channel
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.filled.Tv
+
 /**
  * A single flat list of every channel plus one pinned "Playlist settings"
  * row at the top — no grid, no row categories. TvLazyColumn (not the plain
@@ -41,7 +42,7 @@ import androidx.compose.material.icons.filled.Tv
 fun ChannelListScreen(
     onChannelClick: (Channel) -> Unit,
     onSettingsClick: () -> Unit,
-    viewModel: ChannelsViewModel = viewModel()
+    viewModel: ChannelsViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
 
